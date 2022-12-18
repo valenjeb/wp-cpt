@@ -3,7 +3,7 @@
 /**
  * Plugin Name:     WP Custom Post Types & Taxonomies
  * Plugin URI:      https://github.com/valenjeb/wp-cpt
- * Description:     PLUGIN DESCRIPTION HERE
+ * Description:     A helper library for creating WordPress custom post types an taxonomies in a OOP way.
  * Author:          Valentin Jebelev
  * Author URI:      https://github.com/valenjeb
  * Text Domain:     wp-cpt
