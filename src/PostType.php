@@ -749,6 +749,8 @@ class PostType extends Generator
 
     protected function save(): void
     {
+        $this->saved = true;
+
         if (! $this->extending) {
             $this->register();
         } else {

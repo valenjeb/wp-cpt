@@ -22,6 +22,7 @@ abstract class Generator
     /** @var array<string, mixed>  */
     protected array $options = [];
     protected Columns $columns;
+    protected bool $saved = false;
 
     /**
      * @param string                $name    The post type or taxonomy name to register.
@@ -40,8 +41,20 @@ abstract class Generator
         $this->useLabels($labels);
 
         add_action('init', function (): void {
+            if ($this->saved) {
+                return;
+            }
+
+            $message = sprintf(
+                'The save() method was not called for %s class. The save() method'
+                . ' needs to be called manually within the init hook.',
+                static::class
+            );
+
+            trigger_error($message, E_USER_WARNING);
+
             $this->save();
-        });
+        }, PHP_INT_MAX);
     }
 
     /**

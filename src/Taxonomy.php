@@ -511,6 +511,8 @@ class Taxonomy extends Generator
 
     protected function save(): void
     {
+        $this->saved = true;
+
         if (! $this->extending) {
             $this->doRegister();
         } else {
