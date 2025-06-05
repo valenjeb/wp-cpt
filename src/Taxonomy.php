@@ -509,9 +509,16 @@ class Taxonomy extends Generator
         ));
     }
 
+
+    /**
+     * Saves and registers the taxonomy or extends an existing one.
+     *
+     * @throws LogicException If the taxonomy is already registered or does not exist
+     *                        when extending.
+     */
     protected function save(): void
     {
-        $this->saved = true;
+        $this->setSavedOrThrow();
 
         if (! $this->extending) {
             $this->doRegister();

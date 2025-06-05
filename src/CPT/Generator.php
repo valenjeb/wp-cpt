@@ -40,6 +40,7 @@ abstract class Generator
         $this->useOptions($this->mergeWithDefaultOptions($options));
         $this->useLabels($labels);
 
+        // Backward capability support. Will be removed in the next release
         add_action('init', function (): void {
             if ($this->saved) {
                 return;
@@ -130,6 +131,20 @@ abstract class Generator
         }
 
         return $columns;
+    }
+
+    /**
+     * Marks the object as saved or throws an exception if it was already saved.
+     *
+     * @throws LogicException If the object was already saved
+     */
+    protected function setSavedOrThrow(): void
+    {
+        if ($this->saved) {
+            throw new LogicException('The save() method was already called.');
+        }
+
+        $this->saved = true;
     }
 
     /** @throws LogicException */

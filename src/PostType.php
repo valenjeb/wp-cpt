@@ -747,9 +747,16 @@ class PostType extends Generator
             && empty($query->query_vars['suppress_filters']);
     }
 
+
+    /**
+     * Saves and registers the post type or extends an existing one.
+     *
+     * @throws LogicException If the post type is already registered or does not exist
+     *                        when extending.
+     */
     protected function save(): void
     {
-        $this->saved = true;
+        $this->setSavedOrThrow();
 
         if (! $this->extending) {
             $this->register();
