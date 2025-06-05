@@ -8,7 +8,7 @@
  * Author URI:  https://github.com/valenjeb
  * Text Domain: wp-cpt
  * Domain Path: /languages
- * Version:     1.1.0
+ * Version:     1.1.1
  */
 
 declare(strict_types=1);
