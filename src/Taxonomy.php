@@ -516,7 +516,7 @@ class Taxonomy extends Generator
      * @throws LogicException If the taxonomy is already registered or does not exist
      *                        when extending.
      */
-    protected function save(): void
+    public function save(): void
     {
         $this->setSavedOrThrow();
 

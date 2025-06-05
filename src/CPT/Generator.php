@@ -148,5 +148,5 @@ abstract class Generator
     }
 
     /** @throws LogicException */
-    abstract protected function save(): void;
+    abstract public function save(): void;
 }
